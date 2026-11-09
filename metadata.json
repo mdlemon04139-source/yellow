@@ -1,0 +1,6 @@
+{
+  "name": "Yellow Army",
+  "description": "District volunteer network, smart ID card generator, project management, and emergency blood donor directory for Yellow Army Mymensingh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

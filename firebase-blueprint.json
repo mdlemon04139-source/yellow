@@ -1,0 +1,174 @@
+{
+  "entities": {
+    "users": {
+      "title": "Permanent Volunteer User Profiles",
+      "description": "Permanent volunteer accounts and profiles identified by Firebase Authentication UID. These records survive all yearly organizational board resets.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Firebase Auth UID" },
+        "firebaseUid": { "type": "string", "description": "Firebase Auth UID" },
+        "fullName": { "type": "string", "description": "Full name of the volunteer" },
+        "email": { "type": "string", "description": "Email address of the volunteer" },
+        "mobileNo": { "type": "string", "description": "Mobile contact number" },
+        "dateOfBirth": { "type": "string", "description": "Date of birth" },
+        "bloodGroup": { "type": "string", "description": "Blood group" },
+        "gender": { "type": "string", "description": "Gender" },
+        "roleInVBD": { "type": "string", "description": "VBD hierarchy role" },
+        "adminRole": { "type": "string", "description": "Administrative authority role" },
+        "upazila": { "type": "string", "description": "Upazila in Mymensingh" },
+        "avatarUrl": { "type": "string", "description": "Avatar photo URL" },
+        "volunteerIdCode": { "type": "string", "description": "Unique VBD ID code" },
+        "joinDate": { "type": "string", "description": "Initial registration date" },
+        "totalVolunteerHours": { "type": "number", "description": "Lifetime volunteer hours logged" },
+        "projectsAttendedCount": { "type": "number", "description": "Count of lifetime projects attended" },
+        "xp": { "type": "number", "description": "Lifetime volunteer XP" },
+        "dhp": { "type": "number", "description": "Current seasonal DHP points" },
+        "status": { "type": "string", "description": "Active, busy, or alumni" },
+        "isOnline": { "type": "boolean", "description": "Online presence flag" }
+      },
+      "required": ["id", "fullName", "email", "roleInVBD"]
+    },
+    "volunteers": {
+      "title": "Volunteer Directory",
+      "description": "Permanent volunteer member directory data across Mymensingh upazilas.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Volunteer ID or Firebase Auth UID" },
+        "firebaseUid": { "type": "string", "description": "Firebase Auth UID if linked" },
+        "fullName": { "type": "string", "description": "Full name of the volunteer" },
+        "email": { "type": "string", "description": "Email address" },
+        "mobileNo": { "type": "string", "description": "Contact number" },
+        "dateOfBirth": { "type": "string", "description": "Date of birth" },
+        "bloodGroup": { "type": "string", "description": "Blood group" },
+        "gender": { "type": "string", "description": "Gender" },
+        "roleInVBD": { "type": "string", "description": "Role in VBD hierarchy" },
+        "adminRole": { "type": "string", "description": "Executive committee role" },
+        "upazila": { "type": "string", "description": "Upazila in Mymensingh" },
+        "avatarUrl": { "type": "string", "description": "Profile photo URL" },
+        "volunteerIdCode": { "type": "string", "description": "Official VBD ID code" },
+        "joinDate": { "type": "string", "description": "Join date" },
+        "totalVolunteerHours": { "type": "number", "description": "Total volunteer hours logged" },
+        "projectsAttendedCount": { "type": "number", "description": "Count of projects attended" },
+        "xp": { "type": "number", "description": "Lifetime volunteer XP" },
+        "dhp": { "type": "number", "description": "Seasonal DHP points" },
+        "status": { "type": "string", "description": "Status active or inactive" },
+        "isOnline": { "type": "boolean", "description": "Online presence status" }
+      },
+      "required": ["id", "fullName", "email"]
+    },
+    "projects": {
+      "title": "Projects and Operations",
+      "description": "Year-specific community service projects, youth campaigns, meetings, and relief operations.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Project unique ID" },
+        "title": { "type": "string", "description": "Project title" },
+        "type": { "type": "string", "description": "Project or Meeting" },
+        "upazilaScope": { "type": "string", "description": "Target Upazila or District" },
+        "description": { "type": "string", "description": "Project description" },
+        "startingTime": { "type": "string", "description": "Start timestamp" },
+        "closingTime": { "type": "string", "description": "End timestamp" },
+        "venue": { "type": "string", "description": "Venue" },
+        "bannerUrl": { "type": "string", "description": "Banner photo URL" },
+        "status": { "type": "string", "description": "upcoming, ongoing, completed, archived" },
+        "operationalYear": { "type": "number", "description": "Operational calendar year" },
+        "isTopProject": { "type": "boolean", "description": "Featured project flag" },
+        "attendeesCount": { "type": "number", "description": "Attendees count" },
+        "registeredVolunteerIds": { "type": "array", "description": "Registered volunteer IDs" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["id", "title", "type", "upazilaScope", "status"]
+    },
+    "activityLogs": {
+      "title": "Activity Logs",
+      "description": "Operational activity logs stream for volunteer missions and accomplishments.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Activity log ID" },
+        "volunteerId": { "type": "string", "description": "ID of volunteer" },
+        "volunteerName": { "type": "string", "description": "Name of volunteer" },
+        "volunteerAvatar": { "type": "string", "description": "Avatar URL" },
+        "upazila": { "type": "string", "description": "Upazila" },
+        "action": { "type": "string", "description": "Action performed" },
+        "details": { "type": "string", "description": "Action details" },
+        "timestamp": { "type": "string", "description": "Activity timestamp" },
+        "type": { "type": "string", "description": "Activity category" },
+        "operationalYear": { "type": "number", "description": "Operational calendar year" }
+      },
+      "required": ["id", "volunteerId", "volunteerName", "action", "timestamp"]
+    },
+    "notifications": {
+      "title": "Application Notifications",
+      "description": "Operational alerts, role requests, and broadcast notifications.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Notification unique ID" },
+        "title": { "type": "string", "description": "Notification title" },
+        "message": { "type": "string", "description": "Notification message" },
+        "type": { "type": "string", "description": "Notification type" },
+        "timestamp": { "type": "string", "description": "Display timestamp" },
+        "createdAt": { "type": "string", "description": "Creation ISO date" },
+        "read": { "type": "boolean", "description": "Read flag" },
+        "operationalYear": { "type": "number", "description": "Operational calendar year" }
+      },
+      "required": ["id", "title", "message", "type"]
+    },
+    "radioBroadcasts": {
+      "title": "Radio Broadcasts",
+      "description": "Community voice audio broadcasts and posts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Broadcast ID" },
+        "title": { "type": "string", "description": "Broadcast title" },
+        "author": { "type": "string", "description": "Author name" },
+        "operationalYear": { "type": "number", "description": "Operational calendar year" }
+      },
+      "required": ["id", "title"]
+    },
+    "systemAuditLogs": {
+      "title": "System Audit Logs",
+      "description": "Permanent backend audit records for yearly resets and organizational administrative milestones.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Audit log ID" },
+        "action": { "type": "string", "description": "Action name e.g. YEARLY_OPERATIONAL_RESET" },
+        "clearedYear": { "type": "number", "description": "Operational year cleared" },
+        "currentYear": { "type": "number", "description": "Current active operational year" },
+        "totalDeleted": { "type": "number", "description": "Total documents purged" },
+        "executionTimestamp": { "type": "string", "description": "ISO execution timestamp" },
+        "timezone": { "type": "string", "description": "Timezone e.g. Asia/Dhaka" }
+      },
+      "required": ["action", "clearedYear", "totalDeleted", "executionTimestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Permanent volunteer account profiles indexed by Firebase Auth UID. Never cleared by annual resets."
+    },
+    "/volunteers/{volunteerId}": {
+      "schema": "volunteers",
+      "description": "Volunteer directory records. Protected permanently across yearly resets."
+    },
+    "/projects/{projectId}": {
+      "schema": "projects",
+      "description": "Operational projects, meetings, and events. Cleared during annual organizational reset."
+    },
+    "/activityLogs/{logId}": {
+      "schema": "activityLogs",
+      "description": "Operational activity stream logs. Purged during yearly operational reset."
+    },
+    "/notifications/{notifId}": {
+      "schema": "notifications",
+      "description": "Operational notifications and alerts."
+    },
+    "/radioBroadcasts/{broadcastId}": {
+      "schema": "radioBroadcasts",
+      "description": "Radio live broadcast streams."
+    },
+    "/systemAuditLogs/{logId}": {
+      "schema": "systemAuditLogs",
+      "description": "Permanent audit logs recording scheduled yearly resets and administrative actions."
+    }
+  }
+}
